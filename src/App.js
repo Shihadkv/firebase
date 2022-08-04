@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
 
+
+import {db} from './firebase/config'
+import {collection, addDoc, Timestamp,doc,updateDoc,deleteDoc} from 'firebase/firestore'
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <button onClick={()=>{
+/*   its for adding a new collection (creating)*/
+
+      // try {
+      //    addDoc(collection(db, 'product'), {
+      //     name:"iphone",
+      //     type: "Mobile",
+      //     price:"5000",
+      //   })
+        
+      // } catch (err) {
+      //   alert(err)
+      // }
+      
+      /*Getting all tasks from Firestore*/
+
+      // const taskDocRef = doc(db, 'products', "wTEOY1R7e0OawDtpdl2b")
+      // try{
+      //    updateDoc(taskDocRef, {
+      //     name:"fazz",
+      //     type: "kkkk",
+      //     price:"5000",
+      //   })
+       
+      // } catch (err) {
+      //   alert(err)
+      // }
+      
+      const taskDocRef = doc(db, 'shihad', "NEDZzuc2B6ezmnmDaQTJ")
+    try{
+         deleteDoc(taskDocRef)
+    } catch (err) {
+      alert(err)
+    }
+
+
+     }}>click me</button>
+     
     </div>
   );
 }
